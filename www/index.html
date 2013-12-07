@@ -33,6 +33,7 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            <!-- REMOVE THIS SECTION -->
             <p>Setup the <a href="http://puship.com/platform-setup/server-documentation/#GoogleStore" >Google Play Project</a> and/or the the <a href="http://puship.com/platform-setup/server-documentation/#AppleStore" >Apple Push Provisioning</a></p>
             <p>Go to <a href="http://puship.com/?page_id=35" >Puship administration panel</a>, create your application and change the <b>Puship.PushipAppId</b> for send push notification to this application</p>
             <button onclick="getPush()">Get Last Push</button>
@@ -45,20 +46,22 @@
             <button onclick="clearFilters()">Clear filters</button>
             <button onclick="getFilters()">Get filters</button>
             <button onclick="registerCurrentPosition()">Register position</button>
+            <!-- REMOVE THIS SECTION -->
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/PushipNotification.js"></script>
         <script type="text/javascript">
-            app.initialize();
+		
+		app.initialize();
             
-            
+		//REMOVE THIS SECTION
 		function getPushByCurrentPosition(){
 			Puship.Common.GetPushMessages(
-                	{
+	        	{
 					//limit: 10, //max limit is 50 default is 20
-   					//offset: 100,
-   					byCurrentPosition: true,
+	   				//offset: 100,
+	   				byCurrentPosition: true,
 					successCallback: function (regresult){
 		                console.log("GetPushMessages done");
 		                
@@ -78,9 +81,9 @@
 		
 		function getPush(){
 			Puship.Common.GetPushMessages(
-                	{
+	        	{
 					//limit: 10, //max limit is 50 default is 20
-   					//offset: 100,
+	   				//offset: 100,
 					successCallback: function (regresult){
 		                console.log("GetPushMessages done");
 		                
@@ -100,10 +103,10 @@
 		
 		function getPushByLibra(){
 			Puship.Common.GetPushMessages(
-                	{
+	        	{
 					//limit: 10, //max limit is 50 default is 20
-   					//offset: 100,
-   					tag: "Libra",
+	   				//offset: 100,
+	   				tag: "Libra",
 					successCallback: function (regresult){
 		                console.log("GetPushMessages done");
 		                
@@ -123,9 +126,9 @@
 		
 		function getPushByDevice(){
 			Puship.Common.GetPushMessagesByDevice(
-                	{
+	        	{
 					//limit: 10, //max limit is 50 default is 20
-   					//offset: 100,
+	   				//offset: 100,
 					successCallback: function (regresult){
 		                console.log("GetPushMessagesByDevice done");
 		                
@@ -161,7 +164,7 @@
 		}
 		function getFilters(){
 			Puship.Common.GetTagFilters(
-                	{
+	        	{
 					successCallback: function (regresult){
 		                console.log("GetTagFilters done");
 		                
@@ -191,6 +194,7 @@
 					}
 				});
 		}
+		// REMOVE THIS SECTION
         </script>
     </body>
 </html>

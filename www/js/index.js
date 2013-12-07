@@ -45,5 +45,26 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        
+		Puship.PushipAppId = "jS0oE8PtHcVarde"; // Global setting Puship Application ID
+		var GCMCode = "256166004608"; // this is The google senderID
+		
+		if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+			Puship.GCM.Register(GCMCode,
+					{
+						successCallback: function (regresult){
+							console.log("device registed");
+							console.log('DeviceToken: ' + regresult.DeviceToken); //Use this if you want manage push aautonomously
+							console.log('DeviceId: ' + regresult.DeviceId); //Use this for send push notification from Puship Api
+							alert("device registed");
+							
+						},
+						failCallback: function (regresult){
+							console.warn("error during registration: "+ regresult);
+							alert("error during registration: "+ regresult);
+						}
+					});
+		}
+		
     }
 };

@@ -50,20 +50,28 @@ var app = {
 		var GCMCode = "256166004608"; // this is The google senderID
 		
 		if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+			var GCMCode = your_sender_id; // questo è il senderID fornito da google. esempio: "28654934133"
 			Puship.GCM.Register(GCMCode,
-					{
-						successCallback: function (regresult){
-							console.log("device registed");
-							console.log('DeviceToken: ' + regresult.DeviceToken); //Use this if you want manage push aautonomously
-							console.log('DeviceId: ' + regresult.DeviceId); //Use this for send push notification from Puship Api
-							alert("device registed");
-							
-						},
-						failCallback: function (regresult){
-							console.warn("error during registration: "+ regresult);
-							alert("error during registration: "+ regresult);
-						}
-					});
+			{
+				successCallback: function (pushipresult){
+					navigator.notification.alert("device registed");
+				},
+				failCallback: function (pushipresult){
+					navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
+				}
+			});
+		} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+			Puship.APNS.Register(
+			{
+				successCallback: function (pushipresult){
+					navigator.notification.alert("device registed");
+				},
+				failCallback: function (pushipresult){
+					navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
+				}
+			});
+		} else {
+			Console.log("Not supported platform");
 		}
 		
 		Puship.Common.OnPushReceived(function(event) {

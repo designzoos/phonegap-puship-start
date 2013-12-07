@@ -6,10 +6,10 @@
         id        = "info.i360.puship"
         version   = "1.0.0">
 
-    <name>Puship Example</name>
+    <name>Puship Start App</name>
 
     <description>
-        Puship example application that register to puship server.
+        Puship start project for create application with push server support.
     </description>
 
     <author href="http://puship.com" email="support@puship.com">

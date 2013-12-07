@@ -66,5 +66,19 @@ var app = {
 					});
 		}
 		
+		Puship.Common.OnPushReceived(function(event) {
+			
+			console.log('push received');
+			
+			try
+			{
+				alert(event.notification.Alert);
+			}
+			catch(err)
+			{
+				console.warn("Cannot display alert in background");
+			}
+		});
+		
     }
 };

@@ -46,47 +46,46 @@ var app = {
 
         console.log('Received Event: ' + id);
         
-		Puship.PushipAppId = "jS0oE8PtHcVarde"; // Global setting Puship Application ID
-		var GCMCode = "256166004608"; // this is The google senderID
-		
-		if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
-			var GCMCode = your_sender_id; // questo è il senderID fornito da google. esempio: "28654934133"
-			Puship.GCM.Register(GCMCode,
-			{
-				successCallback: function (pushipresult){
-					navigator.notification.alert("device registed");
-				},
-				failCallback: function (pushipresult){
-					navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
-				}
-			});
-		} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
-			Puship.APNS.Register(
-			{
-				successCallback: function (pushipresult){
-					navigator.notification.alert("device registed");
-				},
-				failCallback: function (pushipresult){
-					navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
-				}
-			});
-		} else {
-			Console.log("Not supported platform");
-		}
-		
-		Puship.Common.OnPushReceived(function(event) {
-			
-			console.log('push received');
-			
-			try
-			{
-				alert(event.notification.Alert);
-			}
-			catch(err)
-			{
-				console.warn("Cannot display alert in background");
+	Puship.PushipAppId = "jS0oE8PtHcVarde"; // Replace this with your Puship Application ID
+	
+	if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+		var GCMCode = "256166004608"; // Replace this with your google senderID
+		Puship.GCM.Register(GCMCode,
+		{
+			successCallback: function (pushipresult){
+				navigator.notification.alert("device registed");
+			},
+			failCallback: function (pushipresult){
+				navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
 			}
 		});
+	} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+		Puship.APNS.Register(
+		{
+			successCallback: function (pushipresult){
+				navigator.notification.alert("device registed");
+			},
+			failCallback: function (pushipresult){
+				navigator.notification.alert("error during registration: "+ JSON.stringify(pushipresult));
+			}
+		});
+	} else {
+		Console.log("Not supported platform");
+	}
+	
+	Puship.Common.OnPushReceived(function(event) {
+		
+		console.log('push received');
+		
+		try
+		{
+			alert(event.notification.Alert);
+		}
+		catch(err)
+		{
+			console.warn("Cannot display alert in background");
+		}
+	});
 		
     }
 };

@@ -24,7 +24,7 @@ The application is based on the [Phonegap phonegap-start][phonegap-start] app.
 
 ### 1. Update the Source
 
-    cp cordova-app-hello-world/www www/
+    cp phonegap-start/www www/
 
 __Do not replace `www/config.xml`.__
 

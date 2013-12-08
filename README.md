@@ -1,6 +1,6 @@
 # PhoneGap Build Starter Application
 
-> A Hello World application to get started with PhoneGap Build.
+> A example application to get started with PhoneGap Build and push notifications.
 
 ## Usage
 
@@ -20,7 +20,7 @@ Create a new app with the following repository:
 
 ## Updating the Application
 
-The application is based on the [Apache Cordova Hello World][cordova-app] app.
+The application is based on the [Phonegap phonegap-start][phonegap-start] app.
 
 ### 1. Update the Source
 
@@ -32,7 +32,7 @@ __Do not replace `www/img/logo.png`.__
 
 ### 2. Update index.html
 
-Replace `<h1>Apache Cordova</h1>` with `<h1>PhoneGap</h1>`.
+Replace `<h1>PhoneGap</h1>` with `<h1>Puship Example</h1>`.
 
 ### 3. Update PhoneGap Version
 
@@ -46,5 +46,5 @@ Replace `<h1>Apache Cordova</h1>` with `<h1>PhoneGap</h1>`.
 
     $ git tag x.x.x
 
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
+[phonegap-start]: http://github.com/phonegap/phonegap-start
 

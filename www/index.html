@@ -73,7 +73,7 @@
 	                	}
 					},
 					failCallback: function (regresult){
-						console.warn("error during GetPushMessages by Pos: "+ regresult);
+						console.log("error during GetPushMessages by Pos: "+ regresult);
 						alert("error during GetPushMessages by Pos: "+ regresult);
 					}
 				});
@@ -95,7 +95,7 @@
 	                	}
 					},
 					failCallback: function (regresult){
-						console.warn("error during GetPushMessages: "+ regresult);
+						console.log("error during GetPushMessages: "+ regresult);
 						alert("error during GetPushMessages: "+ regresult);
 					}
 				});
@@ -118,7 +118,7 @@
 	                	}
 					},
 					failCallback: function (regresult){
-						console.warn("error during GetPushMessages: "+ regresult);
+						console.log("error during GetPushMessages: "+ regresult);
 						alert("error during GetPushMessages: "+ regresult);
 					}
 				});
@@ -140,7 +140,7 @@
 	                	}
 					},
 					failCallback: function (regresult){
-						console.warn("error during GetPushMessagesByDevice: "+ regresult);
+						console.log("error during GetPushMessagesByDevice: "+ regresult);
 						alert("error during GetPushMessagesByDevice: "+ regresult);
 					}
 				});
@@ -176,7 +176,7 @@
 	                	}
 					},
 					failCallback: function (regresult){
-						console.warn("error during GetTagFilters: "+ regresult);
+						console.log("error during GetTagFilters: "+ regresult);
 						alert("error during GetTagFilters: "+ regresult);
 					}
 				});
@@ -190,7 +190,7 @@
 		                console.log("Position registration done");
 					},
 					failCallback: function (regresult){
-						console.warn("Position registration error: "+ regresult);
+						console.log("Position registration error: "+ regresult);
 					}
 				});
 		}

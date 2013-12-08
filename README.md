@@ -1,6 +1,6 @@
 # PhoneGap Build with Push Enabled Starter Application
 
-> A example application to get started with PhoneGap Build and push notifications.
+> A example application to get started with PhoneGap Build and push notifications on Android and iOS.
 
 ## Usage
 

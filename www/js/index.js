@@ -48,7 +48,6 @@ var app = {
         
 	Puship.PushipAppId = "jS0oE8PtHcVarde"; // Replace this with your Puship Application ID
 	
-	Puship.Common.Clean(); //Remove badge (actually needed for iOS)
 	
 	if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
 		var GCMCode = "256166004608"; // Replace this with your google senderID

@@ -3,8 +3,8 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.puship.example"
-        version   = "1.0.0">
+        id        = "com.designzoos.com"
+        version   = "1.0.7">
 
     <name>Puship Start App</name>
 
@@ -90,6 +90,7 @@
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
+    <access origin="http://puship.cloudapp.net" />
     <!--
         Define access to external domains.
 

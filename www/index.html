@@ -1,200 +1,101 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+  <title>박표진 TV 생생한 교육 이야기 | 박표진 전 부교육감입니다!</title>
+  <link href="tv/mobile.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+  <script src="jquery.xdomainajax.js" type="text/javascript"></script>
 
-    http://www.apache.org/licenses/LICENSE-2.0
+  <script src="list.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/PushipNotification.js"></script>
+<script type="text/javascript">
+   app.initialize();
+</script>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Puship</h1>
-            <p>This application is only created for puship service demostration.</p>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-            <!-- REMOVE THIS SECTION -->
-            <p>Setup the <a href="http://puship.com/platform-setup/server-documentation/#GoogleStore" >Google Play Project</a> and/or the the <a href="http://puship.com/platform-setup/server-documentation/#AppleStore" >Apple Push Provisioning</a></p>
-            <p>Go to <a href="http://puship.com/?page_id=35" >Puship administration panel</a>, create your application and change the <b>Puship.PushipAppId</b> for send push notification to this application</p>
-            <button onclick="getPush()">Get Last Push</button>
-            <button onclick="getPushByCurrentPosition()">Get Last Push by current position</button>
-            <button onclick="getPushByLibra()">Get Last Push by tag Libra</button>
-            <button onclick="getPushByDevice()">Get Last Push by current device</button>
-            <button onclick="addLibraFilter()">Add Libra filter</button>
-            <button onclick="addVirgoFilter()">Add Virgo filter</button>
-            <button onclick="removeFilter()">Remove Libra filter</button>
-            <button onclick="clearFilters()">Clear filters</button>
-            <button onclick="getFilters()">Get filters</button>
-            <button onclick="registerCurrentPosition()">Register position</button>
-            <!-- REMOVE THIS SECTION -->
-        </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/PushipNotification.js"></script>
-        <script type="text/javascript">
-		
-		app.initialize();
-            
-		//REMOVE THIS SECTION
-		function getPushByCurrentPosition(){
-			Puship.Common.GetPushMessages(
-	        	{
-					//limit: 10, //max limit is 50 default is 20
-	   				//offset: 100,
-	   				byCurrentPosition: true,
-					successCallback: function (regresult){
-		                console.log("GetPushMessages done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-	                	}else{
-	                		alert("No message found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetPushMessages by Pos: "+ regresult);
-						alert("error during GetPushMessages by Pos: "+ regresult);
-					}
-				});
-		}
-		
-		function getPush(){
-			Puship.Common.GetPushMessages(
-	        	{
-					//limit: 10, //max limit is 50 default is 20
-	   				//offset: 100,
-					successCallback: function (regresult){
-		                console.log("GetPushMessages done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-	                	}else{
-	                		alert("No message found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetPushMessages: "+ regresult);
-						alert("error during GetPushMessages: "+ regresult);
-					}
-				});
-		}
-		
-		function getPushByLibra(){
-			Puship.Common.GetPushMessages(
-	        	{
-					//limit: 10, //max limit is 50 default is 20
-	   				//offset: 100,
-	   				tag: "Libra",
-					successCallback: function (regresult){
-		                console.log("GetPushMessages done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-	                	}else{
-	                		alert("No message found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetPushMessages: "+ regresult);
-						alert("error during GetPushMessages: "+ regresult);
-					}
-				});
-		}
-		
-		function getPushByDevice(){
-			Puship.Common.GetPushMessagesByDevice(
-	        	{
-					//limit: 10, //max limit is 50 default is 20
-	   				//offset: 100,
-					successCallback: function (regresult){
-		                console.log("GetPushMessagesByDevice done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-	                	}else{
-	                		alert("No message found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetPushMessagesByDevice: "+ regresult);
-						alert("error during GetPushMessagesByDevice: "+ regresult);
-					}
-				});
-		}
-		
-		function addLibraFilter(){
-			console.log("addLibraFilter");
-			Puship.Common.AddTagFilter("Libra");
-		}
-		function addVirgoFilter(){
-			console.log("addVirgoFilter");
-			Puship.Common.AddTagFilter("Virgo");
-		}
-		function removeFilter(){
-			console.log("removeFilter");
-			Puship.Common.RemoveTagFilter("Libra");
-		}
-		function clearFilters(){
-			console.log("removeFilter");
-			Puship.Common.CleanTagFilter();
-		}
-		function getFilters(){
-			Puship.Common.GetTagFilters(
-	        	{
-					successCallback: function (regresult){
-		                console.log("GetTagFilters done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Filter 1 of "+regresult.length+": "+regresult[0]);
-	                	}else{
-	                		alert("No filter found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetTagFilters: "+ regresult);
-						alert("error during GetTagFilters: "+ regresult);
-					}
-				});
-		}
-		
-		function registerCurrentPosition(){
-			console.log("RegisterCurrentPosition");
-			Puship.Common.RegisterCurrentPosition(
-					{
-					successCallback: function (regresult){
-		                console.log("Position registration done");
-					},
-					failCallback: function (regresult){
-						console.log("Position registration error: "+ regresult);
-					}
-				});
-		}
-		// REMOVE THIS SECTION
-        </script>
-    </body>
+<style type="text/css">
+.myButton {
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:28px;
+	padding:9px 72px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="footer">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+      <tr class="index-notify-bg">
+         <td width="20%" height="1" bgcolor="#E7E7E7" style="border-color:white; border-style:none;">
+</td>
+          
+        <td width="80%" height="1" bgcolor="#E7E7E7" style="border-color:white; border-style:none;"></td>
+      </tr>
+  </table>
+  <p align="center">&nbsp;</p>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="125" colspan="4" valign="top"><p align="center"><font face="맑은 고딕" color="#333333"><img src="pjparktvappmain.png" alt="" width="100%" /></font></a></p></td>
+      </tr>
+      <tr>
+       <td colspan="4" valign="top" bgcolor="#ECECEC"><p align="center"></a></p></td>
+      </tr>
+      <tr>
+        <td height="2" colspan="4" valign="top" bgcolor="#FFFFFF"></td>
+    </tr>
+      </tr>
+  </table>
+   
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><center><a href="http://m.pjpark.kr/tv/" class="myButton">입장하기</a></center></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
 </html>
